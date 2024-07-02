@@ -36,7 +36,6 @@ local Library = {
     OutlineColor = Color3.fromRGB(50, 50, 50);
     RiskColor = Color3.fromRGB(255, 50, 50);
     WarningColor = Color3.fromRGB(191, 134, 34),
-    Drakecolor = Color3.fromRGB(255, 0, 0),
 
     Black = Color3.new(0, 0, 0);
     Font = Enum.Font.Code,
@@ -1827,21 +1826,7 @@ do
             Addons = {},
             Risky = Info.Risky,
             Warning = Info.Warning,
-            CustomColor = Info.CustomColor,
         };
-
-
-        local Toggle = {
-            Value = Info.Default or false;
-            Type = 'Toggle';
-
-            Callback = Info.Callback or function(Value) end;
-            Addons = {},
-            Risky = Info.Risky,
-            Drake = Info.Drake,
-            CustomColor = Info.CustomColor,
-        };
-
 
         local Groupbox = self;
         local Container = Groupbox.Container;
@@ -1958,12 +1943,6 @@ do
             Library:RemoveFromRegistry(ToggleLabel)
             ToggleLabel.TextColor3 = Library.WarningColor
             Library:AddToRegistry(ToggleLabel, { TextColor3 = 'WarningColor' })
-        end
-
-        if Toggle.CustomColor then
-            Library:RemoveFromRegistry(ToggleLabel)
-            ToggleLabel.TextColor3 = value
-            Library:AddToRegistry(ToggleLabel, { TextColor3 = 'value' })
         end
 
         Toggle:Display();
